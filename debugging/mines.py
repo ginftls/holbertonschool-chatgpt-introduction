@@ -63,8 +63,7 @@ class Minesweeper:
     def play(self):
         while True:
             self.print_board()  # Print the board initially
-            
-            if self.revealed_count == self.total_non_mine_cells:
+             if self.revealed_count == self.total_non_mine_cells:
                 self.print_board(reveal=True)
                 print("Congratulations! You have won the game!")
                 break
@@ -72,13 +71,11 @@ class Minesweeper:
             try:
                 x = int(input("Enter x coordinate: "))
                 y = int(input("Enter y coordinate: "))
-                
                 # Check if the coordinates are within the valid range
                 if not (0 <= x < self.width and 0 <= y < self.height):
                     print("Invalid coordinates. Please enter values within the range.")
                     input("Press Enter to re-enter the coordinates...")  # Wait for user to press Enter
                     continue  # Prompt for new coordinates without clearing the screen
-                
                 if not self.reveal(x, y):
                     self.print_board(reveal=True)
                     print("Game Over! You hit a mine.")
@@ -87,11 +84,8 @@ class Minesweeper:
                 print("Invalid input. Please enter numbers only.")
                 input("Press Enter to re-enter the coordinates...")  # Wait for user to press Enter
                 continue  # Prompt for new coordinates without clearing the screen
-            
             # Clear the screen only after valid input
             clear_screen()
-
-
 
 if __name__ == "__main__":
     game = Minesweeper()
